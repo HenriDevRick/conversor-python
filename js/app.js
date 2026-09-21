@@ -4,6 +4,7 @@ const botaoConversao = document.querySelector("#botao-converter");
 const nomeArquivo = document.querySelector("#nome-arquivo");
 const status = document.querySelector("#status");
 const apiBaseUrl = (window.APP_CONFIG?.apiBaseUrl || "").replace(/\/$/, "");
+const endpointConversao = `${apiBaseUrl}/api/converter`;
 
 function mostrarStatus(mensagem, tipo = "") {
   status.textContent = mensagem;
@@ -35,13 +36,7 @@ formulario.addEventListener("submit", async (evento) => {
   mostrarStatus("Convertendo seu arquivo...");
 
   try {
-    if (!apiBaseUrl) {
-      throw new Error(
-        "A conversão exige um backend. Configure apiBaseUrl em js/config.js."
-      );
-    }
-
-    const resposta = await fetch(`${apiBaseUrl}/api/converter`, {
+    const resposta = await fetch(endpointConversao, {
       method: "POST",
       body: dados,
     });
