@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de PDF para DOCX</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <main class="pagina">
+    <section class="painel" aria-labelledby="titulo">
+      <div class="marca" aria-hidden="true">PDF <span>+</span> DOCX</div>
+      <h1 id="titulo">Conversor de PDF para Word</h1>
+      <p class="subtitulo">Transforme seu documento em poucos segundos.</p>
+
+      <form id="formulario-conversao">
+        <label class="area-upload" for="arquivo-pdf" id="area-upload">
+          <span class="icone-upload" aria-hidden="true">↑</span>
+          <span class="texto-upload">Escolha um arquivo PDF</span>
+          <span class="nome-arquivo" id="nome-arquivo">Nenhum arquivo selecionado</span>
+          <input id="arquivo-pdf" name="arquivo" type="file" accept="application/pdf,.pdf" required>
+        </label>
+
+        <button class="botao botao-converter" id="botao-converter" type="submit" disabled>
+          Converter para DOCX
+        </button>
+      </form>
+
+      <div class="status" id="status" role="status" aria-live="polite"></div>
+    </section>
+  </main>
+  <script src="./js/config.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
