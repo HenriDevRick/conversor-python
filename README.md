@@ -39,6 +39,22 @@ Depois, acesse `http://127.0.0.1:8000`.
 
 Nesse modo, o backend serve o frontend pela mesma origem e `apiBaseUrl` pode permanecer vazio.
 
+### Publicar o backend para o GitHub Pages
+
+O GitHub Pages não executa Python. Para habilitar conversões no endereço
+publicado, crie um Web Service no Render apontando para este repositório. O
+arquivo `render.yaml` já contém o comando de instalação e inicialização.
+Depois do deploy, copie a URL `https://...onrender.com` para `js/config.js`:
+
+```javascript
+window.APP_CONFIG = Object.freeze({
+	apiBaseUrl: "https://conversor-pdf-backend.onrender.com",
+});
+```
+
+Faça commit e push dessa alteração para a branch `main` para o GitHub Pages
+publicar a nova configuração.
+
 Para instalar também as ferramentas de desenvolvimento:
 
 ```powershell
